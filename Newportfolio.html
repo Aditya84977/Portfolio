@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Aditya — Video Editor</title>
+<title>Aditya Raj — Video Editor & Motion Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -169,6 +169,18 @@ footer{padding:36px 0 46px;text-align:center;color:var(--muted);font-size:14.5px
   header{padding:48px 0 60px}
   .grid{grid-template-columns:1fr}
 }
+
+.hero-stats{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
+.hero-stats div{padding:10px 13px;border:1px solid var(--line);border-radius:13px;
+  background:rgba(255,255,255,.035);min-width:125px}
+.hero-stats strong{display:block;font-size:13px;line-height:1.2}
+.hero-stats span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.hi{font-weight:600}
+@media(max-width:520px){
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr}
+  .hero-stats div:last-child{grid-column:1/-1}
+  .btn{width:100%;justify-content:center}
+}
 </style>
 </head>
 <body>
@@ -193,6 +205,11 @@ footer{padding:36px 0 46px;text-align:center;color:var(--muted);font-size:14.5px
       <p class="hi">Hi, my name is</p>
       <h1>Aditya<br><span class="grad">Video Editor</span></h1>
       <p class="lede" id="lede"></p>
+       <div class="hero-stats">
+         <div><strong>Premiere Pro</strong><span>Editing</span></div>
+         <div><strong>After Effects</strong><span>Motion</span></div>
+         <div><strong>Fast Turnaround</strong><span>Reliable</span></div>
+       </div>
       <div class="btns">
         <a class="btn btn-primary" href="#work">See my work</a>
         <a class="btn btn-ghost" href="#contact">Hire me</a>
@@ -248,8 +265,8 @@ footer{padding:36px 0 46px;text-align:center;color:var(--muted);font-size:14.5px
 
 /* ─── 1. YOUR DETAILS ───────────────────────────────────────────── */
 const ME = {
-  tagline: "I cut vlogs, gaming videos and motion graphics that keep people watching to the last second. Premiere Pro and After Effects, fast turnaround, no drama.",
-  contactCopy: "Tell me the channel, the vibe and the deadline. I usually reply within a few hours.",
+  tagline: "I edit vlogs, gaming content and motion graphics with sharp pacing, clean visuals and attention-grabbing moments. Built with Premiere Pro and After Effects.",
+  contactCopy: "Have a video, reel or motion-graphics project in mind? Send me the brief, references and deadline. Let’s build something worth watching.",
 
   // ⬇ PASTE YOUR DISCORD INVITE / PROFILE LINK HERE
   discord: "https://discord.com/users/1104330992795275335"
@@ -375,7 +392,7 @@ function videoId(url){
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 window.__reelMissing = function(videoEl, path){
   const wrap = videoEl.closest(".thumbwrap");
-  if(wrap) wrap.innerHTML = '<div class="vidmissing">Can’t find<br>' + esc(path) + '</div>';
+  if(wrap) wrap.innerHTML = '<div class="vidmissing"><strong>Preview unavailable</strong><br><span style="opacity:.8">Add the video file to the videos/ folder:<br>' + esc(path) + '</span></div>';
 };
 
 const grid = document.getElementById("grid");
